@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vật Lý  - Trần Quốc Hiền</title>
+    <title>VẬT LÝ 12 - TRẦN QUỐC HIỀN</title>
     <style>
         :root {
             --primary-color: #1565C0;
@@ -12,6 +12,7 @@
             --card-bg: #FFFFFF;
             --text-color: #2C3E50;
             --border-color: #E0E6ED;
+            --accent-bg: #E3F2FD;
         }
 
         * {
@@ -33,7 +34,7 @@
 
         .container {
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             background: var(--card-bg);
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -43,7 +44,7 @@
 
         .year-tag {
             color: #D32F2F;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 900;
             margin-bottom: 5px;
         }
@@ -68,7 +69,6 @@
             gap: 20px;
         }
 
-        /* Tối ưu hiển thị trên điện thoại */
         @media (max-width: 650px) {
             .chapters-grid {
                 grid-template-columns: 1fr;
@@ -77,7 +77,7 @@
                 padding: 15px;
             }
             .year-tag {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .title-banner {
                 font-size: 1.1rem;
@@ -89,8 +89,8 @@
             background: white;
             border: 2px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
-            font-size: 1.05rem;
+            padding: 22px 20px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -106,20 +106,20 @@
             border-color: var(--primary-color);
             color: var(--primary-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(21, 101, 192, 0.1);
+            box-shadow: 0 5px 15px rgba(21, 101, 192, 0.12);
         }
 
         .icon {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
         }
 
-        /* Phần hiển thị danh sách đề thi */
+        /* Phần hiển thị danh sách bài học và đề thi */
         .exam-section {
             display: none;
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: left;
-            animation: fadeIn 0.4s ease forwards;
+            animation: fadeIn 0.35s ease forwards;
         }
 
         @keyframes fadeIn {
@@ -134,36 +134,69 @@
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             margin-bottom: 20px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background-color: var(--accent-bg);
+            transition: background 0.2s;
         }
 
         .back-btn:hover {
-            text-decoration: underline;
+            background-color: #BBDEFB;
         }
 
         .exam-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.35rem;
+            margin-bottom: 20px;
             color: var(--primary-color);
-            border-left: 4px solid var(--primary-color);
-            padding-left: 10px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Nhóm từng bài học */
+        .lesson-group {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .lesson-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .lesson-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lesson-name.special-exam {
+            color: #D32F2F;
         }
 
         .exam-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
         }
 
         .exam-btn {
-            background-color: #F0F4F8;
-            border: 1px solid var(--border-color);
-            padding: 12px;
+            background-color: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            padding: 10px 8px;
             border-radius: 8px;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-align: center;
             cursor: pointer;
             text-decoration: none;
@@ -175,86 +208,107 @@
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .exam-btn.special-btn {
+            background-color: #FFF5F5;
+            border-color: #FEB2B2;
+            color: #C53030;
+        }
+
+        .exam-btn.special-btn:hover {
+            background-color: #D32F2F;
+            color: white;
+            border-color: #D32F2F;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="year-tag">TT Gia Sư - 48 </div>
-    <div class="title-banner">BỘ ĐỀ LÝ KHỐI 12</div>
+    <div class="year-tag">TRUNG TÂM GIA SƯ - 48</div>
+    <div class="title-banner">VẬT LÝ KHỐI 12</div>
 
+    <!-- Danh sách 4 Chương học -->
     <div class="chapters-grid" id="chaptersGrid">
-        <div class="chapter-card" onclick="openExamSection('daoham', 'Ứng Dụng Đạo Hàm')">
-            <span class="icon">📈</span>
-            <span>1. Ứng dụng đạo hàm</span>
+        <div class="chapter-card" onclick="openExamSection('chuong1', 'Chương I. Vật Lí Nhiệt')">
+            <span class="icon">🌡️</span>
+            <span>Chương I. Vật lí nhiệt</span>
         </div>
-        <div class="chapter-card" onclick="openExamSection('oxyz', 'Hệ Toạ Độ Oxyz')">
-            <span class="icon">📐</span>
-            <span>2. Hệ toạ độ Oxyz</span>
+        <div class="chapter-card" onclick="openExamSection('chuong2', 'Chương II. Khí Lí Tưởng')">
+            <span class="icon">🎈</span>
+            <span>Chương II. Khí lí tưởng</span>
         </div>
-        <div class="chapter-card" onclick="openExamSection('phantoan', 'Các Số Đặc Trưng Đo Độ Phân Tán MSL Ghép Nhóm')">
-            <span class="icon">📊</span>
-            <span>3. Các số đặc trưng đo độ phân tán MSL ghép nhóm</span>
+        <div class="chapter-card" onclick="openExamSection('chuong3', 'Chương III. Từ Trường')">
+            <span class="icon">🧲</span>
+            <span>Chương III. Từ trường</span>
         </div>
-        <div class="chapter-card" onclick="openExamSection('tichphan', 'Nguyên Hàm - Tích Phân')">
-            <span class="icon">∫</span>
-            <span>4. Nguyên hàm - Tích phân</span>
-        </div>
-        <div class="chapter-card" onclick="openExamSection('toadokk', 'Phương Pháp Toạ Độ Trong Không Gian')">
-            <span class="icon">🌐</span>
-            <span>5. Phương pháp toạ độ trong không gian</span>
-        </div>
-        <div class="chapter-card" onclick="openExamSection('xacsuat', 'Xác Suất Có Điều Kiện')">
-            <span class="icon">🎲</span>
-            <span>6. Xác suất có điều kiện</span>
+        <div class="chapter-card" onclick="openExamSection('chuong4', 'Chương IV. Vật Lí Hạt Nhân')">
+            <span class="icon">⚛️</span>
+            <span>Chương IV. Vật lí hạt nhân</span>
         </div>
     </div>
 
+    <!-- Khu vực hiển thị các bài học và đề thi -->
     <div class="exam-section" id="examSection">
         <button class="back-btn" onclick="goBack()">⬅ Quay lại danh sách chương</button>
         <h3 class="exam-title" id="currentChapterTitle">Tên chương học</h3>
         
-        <div class="exam-buttons" id="examButtonsContainer">
-            </div>
+        <div id="lessonsContainer"></div>
     </div>
 </div>
 
 <script>
-    // Dữ liệu đề thi cho 6 chương học mới
-    const examData = {
-        daoham: [
-            { name: "Đề 01: Sự biến thiên và cực trị của hàm số - Mức độ 1", link: "#" },
-            { name: "Đề 02: Sự biến thiên và cực trị của hàm số - Mức độ 2", link: "#" },
-            { name: "Đề 03: Giá trị lớn nhất - nhỏ nhất - Mức độ 1", link: "#" },
-            { name: "Đề 04: Giá trị lớn nhất - nhỏ nhất - Mức độ 2", link: "#" },
-            { name: "Đề 05: Tiệm cận", link: "#" },
-            { name: "Đề 06: Khảo sát hàm số", link: "#" }
+    // Hàm tạo nhanh danh sách 5 đề mặc định cho mỗi bài (bạn chỉ cần thay dấu "#" bằng link thực tế)
+    function createDefaultExams(prefix) {
+        return [
+            { name: "Đề số 1", link: "#" },
+            { name: "Đề số 2", link: "#" },
+            { name: "Đề số 3", link: "#" },
+            { name: "Đề số 4", link: "#" },
+            { name: "Đề số 5", link: "#" }
+        ];
+    }
+
+    // Dữ liệu chi tiết theo Phụ lục Vật Lý 12
+    const physics12Data = {
+        chuong1: [
+            { lesson: "Bài 1. Cấu trúc của chất. Sự chuyển thể", exams: createDefaultExams("c1_b1") },
+            { lesson: "Bài 2. Nội năng. Định luật I của nhiệt động lực học", exams: createDefaultExams("c1_b2") },
+            { lesson: "Bài 3. Nhiệt độ. Thang nhiệt độ – nhiệt kế", exams: createDefaultExams("c1_b3") },
+            { lesson: "Bài 4. Nhiệt dung riêng", exams: createDefaultExams("c1_b4") },
+            { lesson: "Bài 5. Nhiệt nóng chảy riêng", exams: createDefaultExams("c1_b5") },
+            { lesson: "Bài 6. Nhiệt hóa hơi riêng", exams: createDefaultExams("c1_b6") },
+            { lesson: "Bài 7. Bài tập về vật lí nhiệt", exams: createDefaultExams("c1_b7") },
+            { lesson: "ĐỀ ÔN TẬP GIỮA HỌC KÌ I (GHKI)", isSpecial: true, exams: createDefaultExams("c1_ghk1") }
         ],
-        oxyz: [
-            { name: "Đề tọa độ điểm", link: "#" },
-            { name: "Đề PT mặt phẳng", link: "#" },
-            { name: "Đề tổng hợp Oxyz", link: "#" }
+        chuong2: [
+            { lesson: "Bài 8. Mô hình động học phân tử chất khí", exams: createDefaultExams("c2_b8") },
+            { lesson: "Bài 9. Định luật Boyle", exams: createDefaultExams("c2_b9") },
+            { lesson: "Bài 10. Định luật Charles", exams: createDefaultExams("c2_b10") },
+            { lesson: "Bài 11. Phương trình trạng thái của khí lí tưởng", exams: createDefaultExams("c2_b11") },
+            { lesson: "Bài 12. Áp suất khí theo mô hình động học phân tử. Quan hệ giữa động năng phân tử và nhiệt độ", exams: createDefaultExams("c2_b12") },
+            { lesson: "Bài 13. Bài tập về khí lí tưởng", exams: createDefaultExams("c2_b13") },
+            { lesson: "ĐỀ ÔN TẬP CUỐI HỌC KÌ I (CHKI)", isSpecial: true, exams: createDefaultExams("c2_chk1") }
         ],
-        phantoan: [
-            { name: "Đề Khoảng biến thiên", link: "#" },
-            { name: "Đề Phương sai & Độ lệch chuẩn", link: "#" },
-            { name: "Đề mẫu số liệu ghép nhóm", link: "#" }
+        chuong3: [
+            { lesson: "Bài 14. Từ trường", exams: createDefaultExams("c3_b14") },
+            { lesson: "Bài 15. Lực từ tác dụng lên dây dẫn mang dòng điện. Cảm ứng từ", exams: createDefaultExams("c3_b15") },
+            { lesson: "Bài 16. Từ thông. Hiện tượng cảm ứng điện từ", exams: createDefaultExams("c3_b16") },
+            { lesson: "Bài 17. Máy phát điện xoay chiều", exams: createDefaultExams("c3_b17") },
+            { lesson: "Bài 18. Ứng dụng hiện tượng cảm ứng điện từ", exams: createDefaultExams("c3_b18") },
+            { lesson: "Bài 19. Điện từ trường. Mô hình sóng điện từ", exams: createDefaultExams("c3_b19") },
+            { lesson: "Bài 20. Bài tập về từ trường", exams: createDefaultExams("c3_b20") },
+            { lesson: "ĐỀ ÔN TẬP GIỮA HỌC KÌ II (GHKII)", isSpecial: true, exams: createDefaultExams("c3_ghk2") }
         ],
-        tichphan: [
-            { name: "Đề nguyên hàm cơ bản", link: "#" },
-            { name: "Đề tích phân đổi biến", link: "#" },
-            { name: "Đề ứng dụng diện tích", link: "#" }
-        ],
-        toadokk: [
-            { name: "Đề PT đường thẳng", link: "#" },
-            { name: "Đề PT mặt cầu", link: "#" },
-            { name: "Đề Góc & Khoảng cách", link: "#" }
-        ],
-        xacsuat: [
-            { name: "Đề XS điều kiện 1", link: "#" },
-            { name: "Đề Công thức XS toàn phần", link: "#" },
-            { name: "Đề Bayes nâng cao", link: "#" }
+        chuong4: [
+            { lesson: "Bài 21. Cấu trúc hạt nhân", exams: createDefaultExams("c4_b21") },
+            { lesson: "Bài 22. Phản ứng hạt nhân và năng lượng liên kết", exams: createDefaultExams("c4_b22") },
+            { lesson: "Bài 23. Hiện tượng phóng xạ", exams: createDefaultExams("c4_b23") },
+            { lesson: "Bài 24. Công nghiệp hạt nhân", exams: createDefaultExams("c4_b24") },
+            { lesson: "Bài 25. Bài tập về vật lí hạt nhân", exams: createDefaultExams("c4_b25") },
+            { lesson: "ĐỀ ÔN TẬP CUỐI HỌC KÌ II (CHKII)", isSpecial: true, exams: createDefaultExams("c4_chk2") }
         ]
     };
 
@@ -265,16 +319,33 @@
         
         document.getElementById('currentChapterTitle').innerText = chapterName;
         
-        const container = document.getElementById('examButtonsContainer');
+        const container = document.getElementById('lessonsContainer');
         container.innerHTML = '';
 
-        const exams = examData[chapterKey] || [];
-        exams.forEach(exam => {
-            const btn = document.createElement('a');
-            btn.href = exam.link;
-            btn.className = 'exam-btn';
-            btn.innerText = exam.name;
-            container.appendChild(btn);
+        const lessons = physics12Data[chapterKey] || [];
+        
+        lessons.forEach(item => {
+            const lessonGroup = document.createElement('div');
+            lessonGroup.className = 'lesson-group';
+
+            const lessonTitle = document.createElement('div');
+            lessonTitle.className = item.isSpecial ? 'lesson-name special-exam' : 'lesson-name';
+            lessonTitle.innerText = (item.isSpecial ? "🔥 " : "📘 ") + item.lesson;
+            lessonGroup.appendChild(lessonTitle);
+
+            const btnGrid = document.createElement('div');
+            btnGrid.className = 'exam-buttons';
+
+            item.exams.forEach(exam => {
+                const btn = document.createElement('a');
+                btn.href = exam.link;
+                btn.className = item.isSpecial ? 'exam-btn special-btn' : 'exam-btn';
+                btn.innerText = exam.name;
+                btnGrid.appendChild(btn);
+            });
+
+            lessonGroup.appendChild(btnGrid);
+            container.appendChild(lessonGroup);
         });
     }
 
